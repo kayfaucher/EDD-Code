@@ -1,0 +1,38 @@
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(13, OUTPUT); // LED on pin 13
+  pinMode(12, OUTPUT); // LED on pin 12
+  pinMode(2, INPUT); // set pin 2 for button
+
+  Serial.begin (9600); // start listening for a button
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+  int buttonEar = digitalRead(2); //
+  Serial.println(buttonEar);
+  delay(100);
+
+  if (buttonEar == LOW) { // if button is not pressed
+    digitalWrite(13, LOW); // turn light off
+    digitalWrite(12, LOW); // turn light off
+  }
+  else {
+    digitalWrite(13, HIGH); // turn on light
+    digitalWrite(12, HIGH); // turn on light
+    delay(1000); 
+   
+    digitalWrite(13, LOW); // turn off light
+    digitalWrite(12, LOW); // turn off light
+    delay(500); 
+
+    digitalWrite(13, HIGH); // turn on light
+    digitalWrite(12, HIGH); // turn on light
+    delay(1000); 
+
+    digitalWrite(13, LOW); // turn off light
+    digitalWrite(12, LOW); // turn off light
+    delay(500);
+  }
+}
