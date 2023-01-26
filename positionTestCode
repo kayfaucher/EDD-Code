@@ -97,10 +97,32 @@ void loop(void)
 
   delay(BNO055_SAMPLERATE_DELAY_MS);
 
-   for (int sadie = 0; sadie < 255; sadie ++)
-  {
-    analogWrite(10, sadie); // fade red off
-    analogWrite(9, (sadie * -1)); // fade blue on
-    delay(5);
-  }
+if(euler.y()>=45 && euler.y()<100)
+{
+digitalWrite(9, HIGH);
+delay(10);
+}
+
+else if(euler.y()<=-65 && euler.y()>-100)
+{
+digitalWrte(9, HIGH);
+delay(10);
+}
+
+else if(euler.z()>=50 && euler.z()<120)
+{
+digitalWrite(9, HIGH);
+delay(10);
+}
+
+else if (euler.z()<=-60 && euler.z()>-150)
+{
+digitalWrite(9, HIGH);
+delay(10);
+}
+
+else{
+digitalWrite(9, LOW);
+}
+
 }
